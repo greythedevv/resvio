@@ -11,21 +11,39 @@ on:
       - main
 
 jobs:
-  build:
+  frontend:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    defaults:
+      run:
+        working-directory: Frontend
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
-    
+          cache: npm
+          cache-dependency-path: Frontend/package-lock.json
 
-      - name: Install Dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npm run build
 
-      - name: Build Application
-        run: npm run build
+  backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Backend/package-lock.json
+
+      - run: npm ci
