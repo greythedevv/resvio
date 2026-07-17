@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const HeroSession = () => {
   return (
@@ -15,10 +15,10 @@ const HeroSession = () => {
         </p>
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <button className="bg-[#C1694F] text-[#FAF6F1] font-serif text-sm px-6 py-3 rounded-lg hover:bg-[#a8573f] transition-colors">
-            Create your wedding
+            <Link to="/signup">Create your wedding</Link>
           </button>
           <button className="bg-white text-[#1F2421] font-serif text-sm px-6 py-3 rounded-lg border border-[#E8D9CD] hover:border-[#C1694F] transition-colors">
-            See an example
+            <Link to="/">See an example</Link>
           </button>
         </div>
       </section>
@@ -27,3 +27,5 @@ const HeroSession = () => {
 };
 
 export default HeroSession;
+
+    
