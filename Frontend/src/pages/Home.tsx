@@ -1,10 +1,9 @@
-import React from 'react'
-import NavBar from '../components/navBar'
-import HeroSession from '../components/landingPage/heroSession'
-import HowItWorks from '../components/landingPage/howItWorks'
-import Features from '../components/landingPage/features'
-import Reviews from '../components/landingPage/reviews'
-import Faq from '../components/landingPage/faq'
+import NavBar from '../components/NavBar'
+import HeroSession from '../components/landingPage/HeroSession'
+import HowItWorks from '../components/landingPage/HowItWorks'
+import Features from '../components/landingPage/Features'
+import Reviews from '../components/landingPage/Reviews'
+import Faq from '../components/landingPage/Faq'
 import Footer from '../components/landingPage/Footer'
 
 const Home = () => {

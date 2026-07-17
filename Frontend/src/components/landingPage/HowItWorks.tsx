@@ -1,4 +1,3 @@
-import React from "react";
 import { FiEdit3, FiHeart, FiShare2 } from "react-icons/fi";
 
 const HowItWorks = () => {

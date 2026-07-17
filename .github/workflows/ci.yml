@@ -20,7 +20,7 @@ jobs:
           cache: npm
           cache-dependency-path: Backend/package-lock.json
       - name: Install backend dependencies
-        run: npm install
+        run: npm ci
 
   frontend:
     runs-on: ubuntu-latest
@@ -35,6 +35,6 @@ jobs:
           cache: npm
           cache-dependency-path: Frontend/package-lock.json
       - name: Install frontend dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
       - name: Build frontend
         run: npm run build

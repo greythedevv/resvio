@@ -1,0 +1,9 @@
+{
+  "name": "resvio-root",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix Frontend run build",
+    "frontend:build": "npm --prefix Frontend run build",
+    "backend:start": "npm --prefix Backend run start"
+  }
+}

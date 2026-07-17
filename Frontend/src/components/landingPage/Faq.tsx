@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { faqs } from "../../data/faq";
 import { FiChevronDown } from "react-icons/fi";
 
@@ -15,6 +15,7 @@ function FaqItem({
     <div className="border-b border-[#E8D9CD] py-4">
       <button
         onClick={onClick}
+        aria-expanded={isOpen}
         className="w-full flex items-center justify-between text-left"
       >
         <span className="font-medium text-[#1F2421] text-sm pr-4">{faq.q}</span>

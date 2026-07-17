@@ -1,4 +1,5 @@
 import { FiFacebook, FiInstagram, FiMail, FiTwitter } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -18,19 +19,19 @@ const Footer = () => {
               </p>
               <ul className="space-y-2 text-xs text-[#7A756D]">
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                   <Link to="/" className="hover:text-[`#C1694F`]">
                     Features
-                  </a>
+                    </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Examples
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -40,19 +41,19 @@ const Footer = () => {
               </p>
               <ul className="space-y-2 text-xs text-[#7A756D]">
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/about" className="hover:text-[#C1694F]">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Support
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -60,19 +61,19 @@ const Footer = () => {
               <p className="font-medium text-[#1F2421] text-xs mb-3">Legal</p>
               <ul className="space-y-2 text-xs text-[#7A756D]">
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Privacy policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Terms of service
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#C1694F]">
+                  <Link to="/" className="hover:text-[#C1694F]">
                     Cookie policy
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -83,18 +84,18 @@ const Footer = () => {
               © {new Date().getFullYear()} Resvio. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" aria-label="Instagram" className="text-[#7A756D] hover:text-[#C1694F]">
+              <Link to="/" aria-label="Instagram" className="text-[#7A756D] hover:text-[#C1694F]">
                 <FiInstagram size={16} />
-              </a>
-              <a href="#" aria-label="Twitter" className="text-[#7A756D] hover:text-[#C1694F]">
+              </Link>
+              <Link to="/" aria-label="Twitter" className="text-[#7A756D] hover:text-[#C1694F]">
                 <FiTwitter size={16} />
-              </a>
-              <a href="#" aria-label="Facebook" className="text-[#7A756D] hover:text-[#C1694F]">
+              </Link>
+              <Link to="/" aria-label="Facebook" className="text-[#7A756D] hover:text-[#C1694F]">
                 <FiFacebook size={16} />
-              </a>
-              <a href="#" aria-label="Email" className="text-[#7A756D] hover:text-[#C1694F]">
+              </Link>
+              <Link to="/" aria-label="Email" className="text-[#7A756D] hover:text-[#C1694F]">
                 <FiMail size={16} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
