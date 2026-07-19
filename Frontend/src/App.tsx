@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login.tsx'
 import Signup from './pages/Signup.tsx'
-// import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard.tsx'
 import ForgotPassword from './pages/ForgotPassword.tsx'
 
 
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
       </Routes>
