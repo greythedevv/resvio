@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const connectDB = require("./src/config/db");
 const authRoutes = require("./src/routes/authRoutes");
+const weddingRoutes = require("./src/routes/weddingRoutes")
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/weddings", weddingRoutes)
 
 // Port
 const PORT = process.env.PORT || 5000;

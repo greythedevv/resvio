@@ -68,3 +68,7 @@ export const forgotPassword = async (
     throw new Error("Something went wrong");
   }
 };
+
+export const logoutUser = async (): Promise<void> => {
+  await api.post("/auth/logout");
+};
