@@ -22,7 +22,7 @@ const weddingSchema = new mongoose.Schema(
     ],
     coverImageUrl: String,
     galleryImageUrls: [String],
-    theme: String,
+    theme: { type: String, default: 'classic' },
     rsvpDeadline: Date,
     isPublished: { type: Boolean, default: false },
     settings: {

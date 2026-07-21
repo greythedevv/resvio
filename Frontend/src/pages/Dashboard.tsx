@@ -41,11 +41,12 @@ export default function Dashboard() {
           </p>
 
           <Link
-            to="/weddings/create"
+            to="/create-wedding"
             className="inline-flex items-center justify-center bg-terracotta text-ivory font-serif px-6 py-3 rounded-lg hover:bg-terracotta-dark transition-colors"
           >
             Create Wedding
           </Link>
+
         </div>
       </div>
     );
