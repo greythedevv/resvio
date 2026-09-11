@@ -6,8 +6,6 @@ import Signup from './pages/Signup.tsx'
 import Dashboard from './pages/Dashboard.tsx'
 import ForgotPassword from './pages/ForgotPassword.tsx'
 import CreateWedding from './pages/CreateWedding.tsx'
-import RsvpNow from './pages/RsvpNow.tsx'
-import InvitationPage from "./pages/InvitationPage.tsx";
 
 
 const App = () => {
@@ -21,8 +19,6 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/create-wedding" element={<CreateWedding />} />
-        <Route path="/invite/:slug" element={<InvitationPage />} />
-        <Route path="/rsvp/:token" element={<RsvpNow />} />
       </Routes>
     </div>
   )
