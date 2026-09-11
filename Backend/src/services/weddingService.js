@@ -1,5 +1,6 @@
 const Wedding = require("../models/weddingModel");
 const Guest = require("../models/guestModel");
+const weddingRepository = require('../database/wedding.repository');
 
 const { generateUniqueSlug } = require("../utils/slug");
 const { uploadBuffer } = require("../config/cloudinary");
@@ -253,6 +254,36 @@ const getWeddingGuests = async (
 
   return guests;
 };
+
+async function getPublicInvitationBySlug(slug) {
+  const wedding = await weddingRepository.findPublishedBySlug(slug);
+
+  if (!wedding) {
+    const error = new Error('Invitation not found');
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return {
+    partner1Name: wedding.partner1Name,
+    partner2Name: wedding.partner2Name,
+    weddingDate: wedding.weddingDate,
+    venue: wedding.venue,
+    story: wedding.story,
+    schedule: wedding.schedule,
+    coverImageUrl: wedding.coverImageUrl,
+    galleryImageUrls: wedding.galleryImageUrls,
+    theme: wedding.theme,
+    rsvpDeadline: wedding.rsvpDeadline,
+    settings: {
+      showGuestCountPublicly: wedding.settings?.showGuestCountPublicly,
+    },
+    giftFundTarget: wedding.giftFundTarget,
+    giftFundRaised: wedding.giftFundRaised,
+    slug: wedding.slug,
+  };
+}
+
 
 module.exports = {
   createWedding,
