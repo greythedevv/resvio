@@ -42,7 +42,7 @@ export default function DashboardHero({
 
         <a
           href={inviteUrl}
-          target="_blank"
+          target="_blank" 
           rel="noreferrer"
           className="bg-terracotta text-ivory text-xs font-serif px-4 py-2 rounded-lg hover:bg-terracotta-dark transition-colors flex items-center gap-1.5"
         >
