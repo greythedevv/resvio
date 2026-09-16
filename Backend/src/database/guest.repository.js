@@ -1,15 +1,15 @@
 const Guest = require('../models/guestModel');
 
-async function findByToken(token) {
-  return Guest.findOne({ inviteToken: token });
+async function findByWeddingAndEmail(weddingId, email) {
+  return Guest.findOne({ weddingId, email });
 }
 
-async function updateRsvpByToken(token, updates) {
-  return Guest.findOneAndUpdate(
-    { inviteToken: token },
-    { $set: updates },
-    { new: true, runValidators: true }
-  );
+async function createGuestRsvp(data) {
+  return Guest.create(data);
 }
 
-module.exports = { findByToken, updateRsvpByToken };
+async function updateGuestRsvp(guestId, updates) {
+  return Guest.findByIdAndUpdate(guestId, { $set: updates }, { new: true, runValidators: true });
+}
+
+module.exports = { findByWeddingAndEmail, createGuestRsvp, updateGuestRsvp };

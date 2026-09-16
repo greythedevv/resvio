@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/weddings", weddingRoutes)
 app.use('/api/public/rsvp', rsvpRoutes);
-app.use("/api/public", publicRoutes);
+app.use('/api/public', publicRoutes);
 
 
 // Port
