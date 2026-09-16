@@ -294,5 +294,4 @@ module.exports = {
   publishWedding,
   getWeddingStats,
   getWeddingGuests,
-  getPublicInvitationBySlug,
 };
