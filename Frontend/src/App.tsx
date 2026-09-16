@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/create-wedding" element={<CreateWedding />} />
         <Route path="/invite/:slug" element={<InvitationPage />} />
-        <Route path="/rsvp/:token" element={<RsvpNow />} />
+        <Route path="/rsvp/:slug" element={<RsvpNow />} />
       </Routes>
     </div>
   )
