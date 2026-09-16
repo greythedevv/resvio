@@ -1,15 +1,23 @@
-export interface RsvpGuest {
+export interface SubmitRsvpInput {
   name: string;
   email: string;
-  rsvpStatus: 'pending' | 'attending' | 'declined';
-  plusOneAllowed: boolean;
+  attending: boolean;
+  partySize?: number;
+  message?: string;
+}
+
+export interface RsvpResult {
+  name: string;
+  email: string;
+  rsvpStatus: 'attending' | 'declined';
   partySize: number;
   message?: string;
 }
 
-export interface SubmitRsvpInput {
-  attending: boolean;
+export interface RsvpFormState {
+  name: string;
   email: string;
-  partySize?: number;
-  message?: string;
+  attending: boolean | null;
+  partySize: number;
+  message: string;
 }
