@@ -19,6 +19,8 @@ export interface Stats {
 export interface Guest {
   _id: string;
   name: string;
+  email?: string;
+  partySize?: number;
   message?: string;
   rsvpStatus: 'pending' | 'attending' | 'declined';
 }
