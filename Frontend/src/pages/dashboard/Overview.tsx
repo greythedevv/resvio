@@ -6,7 +6,7 @@ import WeddingHero from '../../components/dashboard/WeddingHero';
 import StatsRow from '../../components/dashboard/StatsRow';
 import AttendanceDonut from '../../components/dashboard/AttendanceDonut';
 import RsvpTrendChart from '../../components/dashboard/RsvpTrendChart';
-import RecentReviews from '../../components/dashboard/RecentReviews';
+import RecentGuests from '../../components/dashboard/RecentGuests';
 import InvitationStatusDonut from '../../components/dashboard/InvitationStatusDonut';
 import GiftFundPanel from '../../components/dashboard/GiftFundPanel';
 import EventHighlightsCard from '../../components/dashboard/EventHighlightsCard';
@@ -36,7 +36,7 @@ export default function Overview() {
     return () => clearInterval(interval);
   }, [wedding]);
 
-  // Placeholder trend series until a backend endpoint tracks RSVP history over time
+
   const trendData = [
     { date: 'Day 1', attending: Math.round((stats?.attending ?? 0) * 0.4), pending: stats?.pending ?? 0, declined: Math.round((stats?.declined ?? 0) * 0.3) },
     { date: 'Day 2', attending: Math.round((stats?.attending ?? 0) * 0.55), pending: stats?.pending ?? 0, declined: Math.round((stats?.declined ?? 0) * 0.4) },
@@ -63,7 +63,7 @@ export default function Overview() {
           <RsvpTrendChart data={trendData} />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <RecentReviews guests={recentGuests} />
+          <RecentGuests guests={recentGuests} />
           <InvitationStatusDonut opened={stats?.total ?? 0} notOpened={0} bounced={0} />
           <GiftFundPanel
             raised={stats?.fundsRaised ?? 0}

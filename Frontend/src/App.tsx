@@ -7,7 +7,7 @@ import DashboardLayout from './layouts/DashboardLayout.tsx';
 import Overview from './pages/dashboard/Overview';
 import GuestsPage from './pages/dashboard/GuestsPage';
 import GiftsPage from './pages/dashboard/GiftsPage';
-import ProfilePage from './pages/dashboard/ProfilePage';
+// import ProfilePage from './pages/dashboard/ProfilePage';
 import ForgotPassword from './pages/ForgotPassword.tsx'
 import CreateWedding from './pages/CreateWedding.tsx'
 import RsvpNow from './pages/RsvpNow.tsx'
@@ -26,7 +26,7 @@ const App = () => {
           <Route index element={<Overview />} />
           <Route path="guests" element={<GuestsPage />} />
           <Route path="gifts" element={<GiftsPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          {/* <Route path="profile" element={<ProfilePage />} /> */}
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/create-wedding" element={<CreateWedding />} />
