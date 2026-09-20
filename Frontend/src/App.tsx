@@ -12,6 +12,7 @@ import ForgotPassword from './pages/ForgotPassword.tsx'
 import CreateWedding from './pages/CreateWedding.tsx'
 import RsvpNow from './pages/RsvpNow.tsx'
 import InvitationPage from "./pages/InvitationPage.tsx";
+import RsvpDashboardPage from "./pages/dashboard/RsvpDashboardPage.tsx";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route index element={<Overview />} />
           <Route path="guests" element={<GuestsPage />} />
           <Route path="gifts" element={<GiftsPage />} />
+          <Route path="rsvp" element={<RsvpDashboardPage />} />
           {/* <Route path="profile" element={<ProfilePage />} /> */}
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />

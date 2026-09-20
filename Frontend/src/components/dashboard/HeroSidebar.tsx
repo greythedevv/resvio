@@ -8,7 +8,7 @@ export default function HeroSidebar() {
     <aside className="hidden lg:flex flex-col w-56 shrink-0 h-screen sticky top-0 bg-ink text-ivory/70">
       <div className="px-6 pt-7 pb-6">
         <p className="font-serif text-xl italic text-ivory">
-          Our Wedding
+          resvio
         </p>
 
         <p className="text-[10px] tracking-widest text-ivory/40 mt-0.5">

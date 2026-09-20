@@ -32,7 +32,7 @@ export default function RecentGuests({ guests }: Props) {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-ink text-sm font-medium">{g.name}</p>
-                {g.message && <p className="text-muted text-xs mt-0.5 line-clamp-1">"{g.message}"</p>}
+                {/* {g.message && <p className="text-muted text-xs mt-0.5 line-clamp-1">"{g.message}"</p>} */}
               </div>
               <span className={`text-xs font-medium px-2 py-1 rounded-full capitalize shrink-0 ${statusPill[g.rsvpStatus]}`}>
                 {g.rsvpStatus}

@@ -48,7 +48,7 @@ export default function GuestsPage() {
     <div>
       <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
         <div>
-          <h1 className="text-2xl font-medium text-ink tracking-tight">Our Guests</h1>
+          <h1 className="font-serif text-3xl italic text-ink">Our Guests</h1>
           <p className="text-body text-sm mt-1">The people we're grateful to have with us.</p>
         </div>
         <button className="flex items-center gap-1.5 bg-ink text-ivory text-sm px-4 py-2 rounded-lg hover:bg-ink/90 transition-colors">
