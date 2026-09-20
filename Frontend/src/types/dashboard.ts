@@ -17,6 +17,7 @@ export interface Stats {
 }
 
 export interface Guest {
+  respondedAt: string | number | Date;
   _id: string;
   name: string;
   email?: string;

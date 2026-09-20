@@ -25,6 +25,7 @@ export interface WeddingSettings {
 }
 
 export interface Wedding {
+  date: string | number | Date;
   _id: string;
   ownerId: string;
 

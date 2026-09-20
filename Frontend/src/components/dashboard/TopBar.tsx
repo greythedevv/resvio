@@ -3,6 +3,7 @@ import { LuBell, LuUser, LuLogOut } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
 import MobileNav from './MobileNav';
 import type { Wedding } from '../../types/wedding';
+import { logoutUser } from '../../services/auth.service';
 
 interface Props {
   wedding: Wedding | null;
@@ -17,10 +18,15 @@ export default function TopBar({ wedding }: Props) {
     navigate('/dashboard/profile');
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+  try {
+    await logoutUser();
     setProfileOpen(false);
     navigate('/login');
-  };
+  } catch (error) {
+    console.error('Logout failed:', error);
+  }
+};
 
   return (
     <header className="flex items-center justify-between px-6 md:px-8 h-14 border-b border-border bg-white">
