@@ -223,7 +223,7 @@ export default function RsvpDashboardPage() {
           </p>
         ) : (
           <div className="overflow-x-auto">
-            <div className="min-w-[600px]">
+            <div className="min-w-150">
               {/* Table Header */}
               <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 px-4 py-2.5 text-xs text-muted border-b border-border">
                 <span>Name</span>
