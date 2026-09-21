@@ -6,7 +6,7 @@ import Signup from './pages/Signup.tsx'
 import DashboardLayout from './layouts/DashboardLayout.tsx';
 import Overview from './pages/dashboard/Overview';
 import GuestsPage from './pages/dashboard/GuestsPage';
-import GiftsPage from './pages/dashboard/GiftsPage';
+import GiftsPage from './pages/dashboard/GiftFundPage';
 // import ProfilePage from './pages/dashboard/ProfilePage';
 import ForgotPassword from './pages/ForgotPassword.tsx'
 import CreateWedding from './pages/CreateWedding.tsx'
