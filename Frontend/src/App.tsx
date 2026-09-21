@@ -13,6 +13,7 @@ import CreateWedding from './pages/CreateWedding.tsx'
 import RsvpNow from './pages/RsvpNow.tsx'
 import InvitationPage from "./pages/InvitationPage.tsx";
 import RsvpDashboardPage from "./pages/dashboard/RsvpDashboardPage.tsx";
+import WishListPage from "./pages/dashboard/WishListPage.tsx";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="guests" element={<GuestsPage />} />
           <Route path="gifts" element={<GiftsPage />} />
           <Route path="rsvp" element={<RsvpDashboardPage />} />
+          <Route path="wishlist" element={<WishListPage/>} />
           {/* <Route path="profile" element={<ProfilePage />} /> */}
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
