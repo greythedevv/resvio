@@ -10,7 +10,7 @@ import StepCoverPhoto from "../components/createWedding/StepCoverPhoto";
 import StepTheme from "../components/createWedding/StepTheme";
 import StepReview from "../components/createWedding/StepReview";
 
-import { STEPS, THEMES } from "../constants/wedding";
+import { STEPS,  } from "../constants/wedding";
 import useCreateWedding from "../hooks/useCreateWedding";
 
 export default function CreateWedding() {
