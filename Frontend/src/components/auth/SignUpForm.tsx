@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FiMail, FiUser } from "react-icons/fi";
 
 import InputField from "./InputField";
@@ -46,7 +46,7 @@ export default function SignupForm() {
     try {
       await signupUser(form);
 
-      navigate("/dashboard");
+      navigate("/create-wedding");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
