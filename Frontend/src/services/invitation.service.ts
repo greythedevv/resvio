@@ -8,8 +8,10 @@ export const getInvitationBySlug = async (slug: string): Promise<Invitation> => 
     return data.invitation;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      // eslint-disable-next-line preserve-caught-error
       throw new Error(error.response?.data?.message || "Invitation not found");
     }
+    // eslint-disable-next-line preserve-caught-error
     throw new Error("Something went wrong");
   }
 };
