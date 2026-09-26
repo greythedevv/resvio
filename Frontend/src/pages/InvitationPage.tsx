@@ -1,14 +1,34 @@
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 import { useInvitation } from "../hooks/useInvitation";
+
+import InvitationHero from "../components/invitation/InvitationHero";
+import InvitationIntro from "../components/invitation/InvitationIntro";
+import InvitationStory from "../components/invitation/InvitationStory";
+import WeddingDetails from "../components/invitation/WeddingDetails";
+import InvitationGallery from "../components/invitation/InvitationGallery";
+import RsvpSection from "../components/invitation/RsvpSection";
+import InvitationFooter from "../components/invitation/InvitationFooter";
 
 export default function InvitationPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { invitation, loading, error } = useInvitation(slug);
+
+  const {
+    invitation,
+    loading,
+    error,
+  } = useInvitation(slug);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-ivory flex items-center justify-center">
-        <p className="text-muted text-sm">Loading invitation...</p>
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-terracotta border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+
+          <p className="font-serif italic text-muted text-sm">
+            Preparing your invitation...
+          </p>
+        </div>
       </div>
     );
   }
@@ -16,68 +36,72 @@ export default function InvitationPage() {
   if (error || !invitation) {
     return (
       <div className="min-h-screen bg-ivory flex items-center justify-center px-6">
-        <div className="text-center">
-          <p className="font-serif text-xl text-ink mb-2">
+        <div className="text-center max-w-md">
+
+          <p className="font-serif text-3xl text-ink mb-3">
             Invitation not found
           </p>
 
-          <p className="text-muted text-sm mb-6">
-            This link may be incorrect, or the invitation hasn't been published
-            yet.
+          <p className="text-muted text-sm leading-relaxed mb-8">
+            This wedding invitation may not be published yet,
+            or the link you're using may be incorrect.
           </p>
 
           <Link
             to="/"
-            className="text-terracotta text-sm hover:underline"
+            className="inline-flex px-6 py-3 rounded-full bg-ink text-ivory text-sm hover:opacity-90 transition"
           >
             Back to Resvio
           </Link>
+
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-ivory">
-      {invitation.coverImageUrl && (
-        <div
-          className="h-56 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${invitation.coverImageUrl})`,
-          }}
+    <main className="min-h-screen bg-ivory text-ink overflow-hidden">
+
+      <InvitationHero
+        partner1Name={invitation.partner1Name}
+        partner2Name={invitation.partner2Name}
+        weddingDate={invitation.weddingDate}
+        city={invitation.venue?.city}
+        coverImageUrl={invitation.coverImageUrl}
+        slug={slug}
+      />
+
+      <InvitationIntro
+        weddingDate={invitation.weddingDate}
+      />
+
+      {invitation.story && (
+        <InvitationStory
+          story={invitation.story}
+          partner1Name={invitation.partner1Name}
+          partner2Name={invitation.partner2Name}
+          coverImageUrl={invitation.coverImageUrl}
         />
       )}
 
-      <div className="max-w-lg mx-auto px-6 py-10 text-center">
-        <h1 className="font-serif text-3xl text-ink mb-2">
-          {invitation.partner1Name} &amp; {invitation.partner2Name}
-        </h1>
+      <WeddingDetails
+        weddingDate={invitation.weddingDate}
+        venue={invitation.venue}
+      />
 
-        {invitation.weddingDate && (
-          <p className="font-serif italic text-terracotta text-sm mb-6">
-            {new Date(invitation.weddingDate).toLocaleDateString(undefined, {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-            {invitation.venue?.city &&
-              ` — ${invitation.venue.city}`}
-          </p>
-        )}
+      <InvitationGallery
+        images={invitation.galleryImageUrls}
+      />
 
-        {invitation.story && (
-          <p className="text-body text-sm leading-relaxed mb-8">
-            {invitation.story}
-          </p>
-        )}
+      <RsvpSection
+        slug={slug ?? ""}
+      />
 
-        <Link
-          to={`/rsvp/${slug}`}
-          className="inline-block bg-terracotta text-ivory font-serif text-sm px-8 py-3 rounded-lg hover:bg-terracotta-dark transition-colors"
-        >
-          RSVP Now
-        </Link>
-      </div>
-    </div>
+      <InvitationFooter
+        partner1Name={invitation.partner1Name}
+        partner2Name={invitation.partner2Name}
+      />
+
+    </main>
   );
 }

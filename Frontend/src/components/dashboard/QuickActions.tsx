@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { LuSend, LuUsers, LuArmchair, LuGift, LuArrowRight } from 'react-icons/lu';
 
 const ACTIONS = [
-  { label: 'Send Invitations', path: '/dashboard/invitations', icon: LuSend },
+  { label: 'Send Invitations', path: '/dashboard/invitation', icon: LuSend },
   { label: 'Manage Guest List', path: '/dashboard/guests', icon: LuUsers },
-  { label: 'View Seating Plan', path: '/dashboard/seating', icon: LuArmchair },
+  { label: 'View Seating Plan', path: '/dashboard/overview', icon: LuArmchair },
   { label: 'Add to Gift Fund', path: '/dashboard/gifts', icon: LuGift },
 ];
 

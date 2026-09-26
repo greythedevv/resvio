@@ -11,6 +11,7 @@ export function useInvitation(slug: string | undefined) {
     if (!slug) return;
 
     let cancelled = false;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     setError('');
 
