@@ -24,6 +24,13 @@ app.use(
 
 app.use(cookieParser());
 
+// Health check
+app.get("/", (req, res) => {
+  res.json({
+    message: "Resvio API is running",
+  });
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/weddings", weddingRoutes)
