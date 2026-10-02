@@ -12,13 +12,9 @@ export default function InvitationStory({
   coverImageUrl,
 }: InvitationStoryProps) {
   return (
-    <section
-      id="story"
-      className="py-24 md:py-32 px-6 bg-[#E8DED3]"
-    >
+    <section id="story" className="py-24 md:py-32 px-6 bg-terracotta-light">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-
           <div className="relative">
             {coverImageUrl ? (
               <img
@@ -27,14 +23,12 @@ export default function InvitationStory({
                 className="w-full aspect-[4/5] object-cover"
               />
             ) : (
-              <div className="w-full aspect-[4/5] bg-[#D8CEC2] flex items-center justify-center">
+              <div className="w-full aspect-[4/5] bg-border flex items-center justify-center">
                 <span className="font-serif italic text-2xl text-muted">
                   Our story
                 </span>
               </div>
             )}
-
-            <div className="absolute -bottom-5 -right-5 w-32 h-32 border border-terracotta/40" />
           </div>
 
           <div>
@@ -54,7 +48,6 @@ export default function InvitationStory({
               {partner1Name} & {partner2Name}
             </p>
           </div>
-
         </div>
       </div>
     </section>
