@@ -14,7 +14,7 @@ const NavBar = () => {
             Get started
           </Link>
         </button> */}
-        <button className="bg-white text-[#1F2421] font-serif text-sm px-6 py-3 rounded-lg border border-[#E8D9CD] hover:border-[#C1694F] transition-colors">
+        <button className="bg-[#C1694F] text-[#FAF6F1] font-serif text-sm px-6 py-3 rounded-lg border border-[#E8D9CD] hover:border-[#C1694F] transition-colors">
             <Link to="/login">Login</Link>
           </button>
           </div>
