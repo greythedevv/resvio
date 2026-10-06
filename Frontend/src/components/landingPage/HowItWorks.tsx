@@ -27,7 +27,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="relative overflow-hidden border-t border-[#E8D9CD] bg-white px-6 py-20 md:px-12 lg:py-28">
+    <section id="how-it-works" className="relative overflow-hidden border-t border-[#E8D9CD] bg-white px-6 py-20 md:px-12 lg:py-28">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">

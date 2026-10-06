@@ -13,7 +13,7 @@ function FaqItem({
   onClick: () => void;
 }) {
   return (
-    <div
+    <div 
       className={`group border-b border-[#E8D9CD] transition-colors ${
         isOpen ? "bg-[#FCF9F6]" : ""
       }`}
@@ -65,7 +65,7 @@ const Faq = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden border-t border-[#E8D9CD] bg-[#FBFAF8] px-6 py-20 md:px-12 lg:py-28">
+    <section id="faq" className="relative overflow-hidden border-t border-[#E8D9CD] bg-[#FBFAF8] px-6 py-20 md:px-12 lg:py-28">
       <div className="pointer-events-none absolute -right-40 top-20 h-80 w-80 rounded-full bg-[#E8D9CD]/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">

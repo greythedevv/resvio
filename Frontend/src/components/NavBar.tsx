@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -17,7 +16,7 @@ const NavBar = () => {
           </span>
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           <a
             href="#features"
@@ -52,7 +51,7 @@ const NavBar = () => {
 
           <Link
             to="/signup"
-            className="group inline-flex items-center gap-1.5 rounded-lg bg-[#C1694F] px-4 py-2.5 text-sm font-medium text-white shadow-[0_4px_14px_rgba(193,105,79,0.15)] transition-all hover:-translate-y-0.5 hover:bg-[#A8573F] hover:shadow-[0_7px_18px_rgba(193,105,79,0.2)]"
+            className="group inline-flex items-center gap-1.5 rounded-lg bg-[#C1694F] px-4 py-2.5 text-sm font-medium text-white shadow-[0_4px_14px_rgba(193,105,79,0.15)] transition-all hover:-translate-y-0.5 hover:bg-[#A8573F]"
           >
             Get started
             <FiArrowRight className="text-sm transition-transform group-hover:translate-x-0.5" />
