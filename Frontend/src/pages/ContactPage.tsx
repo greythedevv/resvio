@@ -118,6 +118,30 @@ export default function ContactPage() {
           </Link>
         </div>
       </div>
+
+        {/* Footer navigation */}
+      <div className="border-t border-[#E8D9CD] px-6 py-8 md:px-10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-[#9A948C]">
+            © {new Date().getFullYear()} Resvio. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap gap-5 text-xs text-[#7A756D]">
+            <Link to="/contact" className="hover:text-[#C1694F]">
+              Contact
+            </Link>
+            <Link to="/privacy" className="hover:text-[#C1694F]">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-[#C1694F]">
+              Terms
+            </Link>
+            <Link to="/cookies" className="hover:text-[#C1694F]">
+              Cookies
+            </Link>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

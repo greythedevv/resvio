@@ -2,7 +2,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 
@@ -22,11 +21,12 @@ import CreateWedding from "./pages/CreateWedding.tsx";
 import RsvpNow from "./pages/RsvpNow.tsx";
 import InvitationPage from "./pages/InvitationPage.tsx";
 
-import AboutPage from "./pages/AboutPage";
+
 import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import CookiesPage from "./pages/CookiesPage";
+import SupportPage from "./pages/SupportPage.tsx";
 
 const App = () => {
   return (
@@ -34,12 +34,11 @@ const App = () => {
       <Routes>
         {/* Public */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/support" element={<SupportPage />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
