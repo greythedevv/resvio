@@ -8,6 +8,7 @@ const authRoutes = require("./src/routes/authRoutes");
 const weddingRoutes = require("./src/routes/weddingRoutes")
 const publicRoutes = require('./src/routes/public.routes');
 const rsvpRoutes = require('./src/routes/rsvpRoutes');
+const giftFundRoutes = require("./src/routes/giftFundRoutes");
 
 const app = express();
 
@@ -36,6 +37,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/weddings", weddingRoutes)
 app.use('/api/public/rsvp', rsvpRoutes);
 app.use('/api/public', publicRoutes);
+app.use("/api/weddings/:id/gift-fund", giftFundRoutes);
+
 
 
 // Port
