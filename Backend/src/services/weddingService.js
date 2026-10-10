@@ -1,6 +1,9 @@
 const Wedding = require("../models/weddingModel");
 const Guest = require("../models/guestModel");
 const weddingRepository = require('../database/wedding.repository');
+const mongoose = require("mongoose");
+const { buildWeddingUpdates } = require("../utils/buildWeddingUpdates");
+const { createHttpError } = require("../utils/httpError");
 
 const { generateUniqueSlug } = require("../utils/slug");
 const { uploadBuffer } = require("../config/cloudinary");
@@ -65,54 +68,46 @@ const getWeddingById = async (ownerId, weddingId) => {
   return wedding;
 };
 
-const updateWedding = async (
-  ownerId,
-  weddingId,
-  body
-) => {
-  const allowedFields = [
-    "partner1Name",
-    "partner2Name",
-    "weddingDate",
-    "venue",
-    "story",
-    "schedule",
-    "theme",
-    "rsvpDeadline",
-    "settings",
-    "giftFundTarget",
-  ];
-
-  const updates = {};
-
-  allowedFields.forEach((field) => {
-    if (body[field] !== undefined) {
-      updates[field] = body[field];
-    }
-  });
-
-  const wedding =
-    await Wedding.findOneAndUpdate(
-      {
-        _id: weddingId,
-        ownerId,
-      },
-      {
-        $set: updates,
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-
-  if (!wedding) {
-    const error = new Error("Wedding not found");
-    error.status = 404;
-    throw error;
+const updateWedding = async (ownerId, weddingId, body) => {
+  if (!mongoose.isValidObjectId(weddingId)) {
+    throw createHttpError(404, "Wedding not found");
   }
 
-  return wedding;
+  const existing = await weddingRepository.findOwnedById(ownerId, weddingId);
+
+  if (!existing) {
+    throw createHttpError(404, "Wedding not found");
+  }
+
+  const updates = buildWeddingUpdates(body);
+
+  if (Object.keys(updates).length === 0) {
+    throw createHttpError(400, "No valid fields to update");
+  }
+
+  
+  if ("weddingDate" in updates || "rsvpDeadline" in updates) {
+    const weddingDate =
+      "weddingDate" in updates ? updates.weddingDate : existing.weddingDate;
+    const rsvpDeadline =
+      "rsvpDeadline" in updates ? updates.rsvpDeadline : existing.rsvpDeadline;
+
+    if (weddingDate && rsvpDeadline && rsvpDeadline > weddingDate) {
+      throw createHttpError(400, "RSVP deadline must be on or before the wedding date");
+    }
+  }
+
+
+  if (existing.isPublished) {
+    if ("weddingDate" in updates && !updates.weddingDate) {
+      throw createHttpError(400, "A published wedding needs a date");
+    }
+    if ("venue.name" in updates && !updates["venue.name"]) {
+      throw createHttpError(400, "A published wedding needs a venue name");
+    }
+  }
+
+  return weddingRepository.updateOwnedById(ownerId, weddingId, updates);
 };
 const uploadCoverImage = async (
   ownerId,

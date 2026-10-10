@@ -31,3 +31,15 @@ export const THEMES: ThemeOption[] = [
     swatch: "#E8B4B8",
   },
 ];
+
+
+export const WEDDING_LIMITS = {
+  name: 60,
+  venueName: 120,
+  venueAddress: 200,
+  venueCity: 80,
+  story: 5000,
+  scheduleItems: 12,
+  scheduleTitle: 80,
+  scheduleLocation: 120,
+} as const;
