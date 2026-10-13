@@ -9,7 +9,7 @@ const contributionRepository = require("../database/contribution.repository");
 const { generateUniqueSlug } = require("../utils/slug");
 const { uploadBuffer } = require("../config/cloudinary");
 
-const fundsRaised = await contributionRepository.sumPaidByWedding(wedding._id);
+// const fundsRaised = await contributionRepository.sumPaidByWedding(wedding._id);
 
 const createWedding = async (ownerId, body) => {
   const { partner1Name, partner2Name } = body;
