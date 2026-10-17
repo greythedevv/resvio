@@ -70,21 +70,13 @@ export interface CreateWeddingInput {
 export interface UpdateWeddingInput {
   partner1Name?: string;
   partner2Name?: string;
-
-  weddingDate?: string;
-
-  venue?: Venue;
-
+  weddingDate?: string | null;
+  venue?: Partial<Venue>;
   story?: string;
-
   schedule?: ScheduleItem[];
-
-  theme?: Theme;
-
-  rsvpDeadline?: string;
-
-  settings?: Partial<WeddingSettings>;
-
+  theme?: string;
+  rsvpDeadline?: string | null;
+  settings?: Pick<Partial<WeddingSettings>, "allowPlusOnes" | "showGuestCountPublicly">;
   giftFundTarget?: number;
 }
 

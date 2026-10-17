@@ -1,11 +1,12 @@
-
-import { Outlet } from 'react-router-dom';
-import HeroSidebar from '../components/dashboard/HeroSidebar';
-import TopBar from '../components/dashboard/TopBar';
-import { useCurrentWedding } from '../hooks/useCurrentWedding';
+import { Outlet } from "react-router-dom";
+import HeroSidebar from "../components/dashboard/HeroSidebar";
+import TopBar from "../components/dashboard/TopBar";
+import { useCurrentWedding } from "../hooks/useCurrentWedding";
+import type { DashboardOutletContext } from "../types/dashboardContext";
 
 export default function DashboardLayout() {
-  const { wedding, loading } = useCurrentWedding();
+  const { wedding, loading, refetch } = useCurrentWedding();
+  const context: DashboardOutletContext = { wedding, refetch };
 
   return (
     <div className="flex bg-ivory min-h-screen">
@@ -13,7 +14,11 @@ export default function DashboardLayout() {
       <div className="flex-1 min-w-0 flex flex-col">
         <TopBar wedding={wedding} />
         <main className="flex-1 px-6 py-6">
-          {loading ? <p className="text-muted text-sm">Loading...</p> : <Outlet context={{ wedding }} />}
+          {loading ? (
+            <p className="text-muted text-sm">Loading...</p>
+          ) : (
+            <Outlet context={context} />
+          )}
         </main>
       </div>
     </div>

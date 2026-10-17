@@ -2,9 +2,7 @@ interface InvitationIntroProps {
   weddingDate?: string;
 }
 
-export default function InvitationIntro({
-  weddingDate,
-}: InvitationIntroProps) {
+export default function InvitationIntro({ weddingDate }: InvitationIntroProps) {
   const formattedDate = weddingDate
     ? new Date(weddingDate).toLocaleDateString(undefined, {
         weekday: "long",
@@ -15,7 +13,7 @@ export default function InvitationIntro({
     : null;
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-[#F8F5F0]">
+    <section className="py-24 md:py-32 px-6 bg-ivory">
       <div className="max-w-3xl mx-auto text-center">
         <p className="text-terracotta uppercase tracking-[0.25em] text-xs mb-6">
           A day to remember

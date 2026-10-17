@@ -1,7 +1,16 @@
-const Wedding = require('../models/weddingModel');
+const Wedding = require("../models/weddingModel");
 
-async function findPublishedBySlug(slug) {
-  return Wedding.findOne({ slug, isPublished: true });
-}
+const findPublishedBySlug = async (slug) =>
+  Wedding.findOne({ slug, isPublished: true });
 
-module.exports = { findPublishedBySlug };
+const findOwnedById = async (ownerId, weddingId) =>
+  Wedding.findOne({ _id: weddingId, ownerId });
+
+const updateOwnedById = async (ownerId, weddingId, updates) =>
+  Wedding.findOneAndUpdate(
+    { _id: weddingId, ownerId },
+    { $set: updates },
+    { new: true, runValidators: true }
+  );
+
+module.exports = { findPublishedBySlug, findOwnedById, updateOwnedById };
