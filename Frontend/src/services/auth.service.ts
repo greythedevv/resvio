@@ -19,11 +19,11 @@ export const loginUser = async (
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(
-        error.response?.data?.message || "Login failed"
+        error.response?.data?.message || "Login failed", { cause: error }
       );
     }
 
-    throw new Error("Something went wrong");
+    throw new Error("Something went wrong", { cause: error });
   }
 };
 
@@ -40,11 +40,11 @@ export const signupUser = async (
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(
-        error.response?.data?.message || "Registration failed"
+        error.response?.data?.message || "Registration failed", { cause: error }
       );
     }
 
-    throw new Error("Something went wrong");
+    throw new Error("Something went wrong", { cause: error });
   }
 };
 
@@ -61,11 +61,11 @@ export const forgotPassword = async (
     if (axios.isAxiosError(error)) {
       throw new Error(
         error.response?.data?.message ||
-          "Unable to send reset link"
+          "Unable to send reset link", { cause: error }
       );
     }
 
-    throw new Error("Something went wrong");
+    throw new Error("Something went wrong", { cause: error });
   }
 };
 

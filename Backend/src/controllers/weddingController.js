@@ -56,25 +56,21 @@ const getWedding = async (req, res) => {
   }
 };
 
-const updateWedding = async (
-  req,
-  res
-) => {
+const updateWedding = async (req, res) => {
   try {
-    const wedding =
-      await weddingService.updateWedding(
-        req.user._id,
-        req.params.id,
-        req.body
-      );
+    const wedding = await weddingService.updateWedding(
+      req.user._id,
+      req.params.id,
+      req.body
+    );
 
     res.json({ wedding });
-  } catch (error) {
-    res.status(error.status || 500).json({
-      message:
-        error.message ||
-        "Something went wrong",
-    });
+  } catch (err) {
+    if (!err.status) console.error(err);
+
+    res
+      .status(err.status || 500)
+      .json({ message: err.status ? err.message : "Something went wrong" });
   }
 };
 

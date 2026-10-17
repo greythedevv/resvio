@@ -8,6 +8,7 @@ const authRoutes = require("./src/routes/authRoutes");
 const weddingRoutes = require("./src/routes/weddingRoutes")
 const publicRoutes = require('./src/routes/public.routes');
 const rsvpRoutes = require('./src/routes/rsvpRoutes');
+const giftFundRoutes = require("./src/routes/giftFundRoutes");
 
 const app = express();
 
@@ -24,22 +25,30 @@ app.use(
 
 app.use(cookieParser());
 
+// Health check
+app.get("/", (req, res) => {
+  res.json({
+    message: "Resvio API is running",
+  });
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/weddings", weddingRoutes)
 app.use('/api/public/rsvp', rsvpRoutes);
 app.use('/api/public', publicRoutes);
+app.use("/api/weddings/:id/gift-fund", giftFundRoutes);
+
 
 
 // Port
 const PORT = process.env.PORT || 5000;
 
-// Connect to database and start server
 (async () => {
   try {
     await connectDB();
 
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {

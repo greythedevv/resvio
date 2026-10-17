@@ -13,6 +13,8 @@ import InvitationStatusDonut from '../../components/dashboard/InvitationStatusDo
 import GiftFundPanel from '../../components/dashboard/GiftFundPanel';
 import EventHighlightsCard from '../../components/dashboard/EventHighlightsCard';
 import QuickActions from '../../components/dashboard/QuickActions';
+import { useGiftFund } from "../../hooks/useGiftFund";
+import { formatShortDate } from "../../utils/formatDate";
 
 import type { Wedding } from '../../types/wedding';
 import type { Stats, Guest } from '../../types/dashboard';
@@ -96,11 +98,13 @@ export default function Overview() {
     },
   ];
 
-  const recentContributions = recentGuests.slice(0, 4).map((guest) => ({
-    name: guest.name,
-    amount: 0,
-    timeAgo: '—',
-  }));
+  const { summary: giftSummary } = useGiftFund(wedding?._id);
+
+const recentContributions = giftSummary.contributions.slice(0, 4).map((c) => ({
+  name: c.name,
+  amount: c.amount,
+  timeAgo: formatShortDate(c.createdAt),
+}));
 
   return (
     <div className="space-y-8">
